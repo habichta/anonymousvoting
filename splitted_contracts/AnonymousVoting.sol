@@ -1,25 +1,24 @@
 pragma solidity ^0.4.3;
 
-library ECCMath {
-    function invmod(uint a, uint p) internal constant returns (uint);
-    function expmod(uint b, uint e, uint m) internal constant returns (uint r);
-    function toZ1(uint[3] memory P, uint zInv, uint z2Inv, uint prime) internal constant;
-    function toZ1(uint[3] PJ, uint prime) internal constant;
+contract ECCMath {
+    function invmod(uint a, uint p) constant returns (uint) {}
+    function expmod(uint b, uint e, uint m) constant returns (uint r) {}
+    function toZ1(uint[3] memory P, uint zInv, uint z2Inv, uint prime) constant {}
+    function toZ1(uint[3] PJ, uint prime) constant {}
 }
 
-library Secp256k1 {
-    function isPubKey(uint[2] memory P) internal constant returns (bool isPK);
-    function isPubKey(uint[3] memory P) internal constant returns (bool isPK);
-    function validateSignature(bytes32 message, uint[2] rs, uint[2] Q) internal constant returns (bool);
-    function compress(uint[2] P) internal constant returns (uint8 yBit, uint x);
-    function decompress(uint8 yBit, uint x) internal constant returns (uint[2] P);
-    function _add(uint[3] memory P, uint[3] memory Q) internal constant returns (uint[3] memory R);
-    function _addMixed(uint[3] memory P, uint[2] memory Q) internal constant returns (uint[3] memory R);
-    function _addMixedM(uint[3] memory P, uint[2] memory Q) internal constant;
-    function _double(uint[3] memory P) internal constant returns (uint[3] memory Q);
-    function _doubleM(uint[3] memory P) internal constant;
-    function _mul(uint d, uint[2] memory P) internal constant returns (uint[3] memory Q);
-
+contract Secp256k1 {
+    function isPubKey(uint[2] memory P) constant returns (bool isPK) {}
+    function isPubKey(uint[3] memory P) constant returns (bool isPK) {}
+    function validateSignature(bytes32 message, uint[2] rs, uint[2] Q) constant returns (bool) {}
+    function compress(uint[2] P) constant returns (uint8 yBit, uint x) {}
+    function decompress(uint8 yBit, uint x) constant returns (uint[2] P) {}
+    function _add(uint[3] memory P, uint[3] memory Q) constant returns (uint[3] memory R) {}
+    function _addMixed(uint[3] memory P, uint[2] memory Q) constant returns (uint[3] memory R) {}
+    function _addMixedM(uint[3] memory P, uint[2] memory Q) constant {}
+    function _double(uint[3] memory P) constant returns (uint[3] memory Q) {}
+    function _doubleM(uint[3] memory P) constant {}
+    function _mul(uint d, uint[2] memory P) constant returns (uint[3] memory Q) {}
 }
 
 contract AnonymousVoting {
