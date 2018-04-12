@@ -429,7 +429,7 @@ contract AnonymousVoting {
       afteri[2] = 1;
 
       for(uint i=2; i<totalregistered; i++) {
-         Secp256k1._addMixedM(afteri, voters[i].registeredkey);
+         secp256k1._addMixedM(afteri, voters[i].registeredkey);
       }
 
       eccmath.toZ1(afteri,pp);
@@ -444,7 +444,7 @@ contract AnonymousVoting {
          beforei[1] = voters[0].registeredkey[1];
          beforei[2] = 1;
        } else {
-         Secp256k1._addMixedM(beforei, voters[i-1].registeredkey);
+         secp256k1._addMixedM(beforei, voters[i-1].registeredkey);
        }
 
        // If we have reached the end... just store beforei
@@ -462,14 +462,14 @@ contract AnonymousVoting {
           temp[1] = pp - voters[i].registeredkey[1];
 
           // Grab negation of afteri (did not seem to work with Jacob co-ordinates)
-          Secp256k1._addMixedM(afteri,temp);
+          secp256k1._addMixedM(afteri,temp);
           eccmath.toZ1(afteri,pp);
 
           temp[0] = afteri[0];
           temp[1] = pp - afteri[1];
 
           // Now we do beforei - afteri...
-          yG = Secp256k1._addMixed(beforei, temp);
+          yG = secp256k1._addMixed(beforei, temp);
 
           eccmath.toZ1(yG,pp);
 
